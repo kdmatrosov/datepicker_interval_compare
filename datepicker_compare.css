@@ -10,6 +10,7 @@
 html,
 body
 {
+    color: #363636;
 
 }
 .dic-panel
@@ -305,6 +306,35 @@ input.dic-picker__value
 .dic-compare__toggle:hover
 {
     cursor: pointer;
+}
+.dic-compare__change
+{
+    color: #a4a4a4;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: 27px;
+    top: 7px;
+    font-size: 13px;
+    letter-spacing: -6px;
+}
+.dic-compare__clear
+{
+    background: url("images/compare__clean.svg") 0 0 / cover;
+    opacity: 0.5;
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+.dic-compare__change:hover,
+.dic-compare__clear:hover
+{
+
+    color: #363636;
+    cursor: pointer;
+    opacity: 1;
 }
 .dic-hidden
 {

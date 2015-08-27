@@ -79,7 +79,7 @@ window.onload = function () {
             var d_input_end_hidden = initElem(d_hidden, 'input').attr("id", Pickers[0].getAttribute("id")+'_end_hidden').addClass('dic-hidden__value')
                 .attr('type', 'text')
                 .attr('readonly', 'readonly');
-            var d_panel = initElem(new_datepicker, 'div').addClass('dic-panel').addClass('dspl-none').attr('panel', '').on('click', function()
+            var d_panel = initElem(new_datepicker, 'div').addClass('dic-panel').addClass('dspl-none').addClass('-maxheight').attr('panel', '').on('click', function()
             {
 
             });
@@ -314,13 +314,34 @@ window.onload = function () {
             {
                 d_panel.currentElement.classList.toggle('-maxheight');
             });
+            var dic_compare__clean = initElem(dic_compare, 'span', '').addClass('dic-compare__clear').addClass('dspl-none').on('click', function()
+            {
+                d_hidden.addClass('dspl-none');
+                dic_compare__clean.addClass('dspl-none');
+                dic_compare__change.addClass('dspl-none');
+                d_input_start_hidden.currentElement.value = '';
+                d_input_start_hidden.currentElement.date = {};
+                d_input_end_hidden.currentElement.value = '';
+                d_input_end_hidden.currentElement.date = {};
+                showMonth_hidden();
+            });
+            var dic_compare__change = initElem(dic_compare, 'span', '&#8593;&#8595;').addClass('dic-compare__change').addClass('dspl-none').on('click', function()
+            {
+            });
             var p_functions_hidden = initElem(d_panel, 'div').addClass('diP-functions');
 
             function callSetDateForInputHidden(month__days)
             {
                 setDateForInput(d_input_start_hidden, month__days.first);
                 setDateForInput(d_input_end_hidden, month__days.last);
+                showHidden();
                 showMonth_hidden();
+            }
+            function showHidden()
+            {
+                d_hidden.removeClass('dspl-none');
+                dic_compare__clean.removeClass('dspl-none');
+                dic_compare__change.removeClass('dspl-none');
             }
             var p_functions_hidden__previous_month = initElem(p_functions_hidden, 'div', 'Прошлый месяц').addClass('diP-functions__action').on('click', function()
             {
@@ -489,8 +510,7 @@ window.onload = function () {
                                         }
                                     }
                                     di_start.index = input__index; // remember the next input to change value
-
-                                    d_hidden.removeClass('dspl-none');
+                                    showHidden();
                                     showMonth_hidden([inputs[1].y, inputs[1].m]); // redraw
                                 });
                                 if (curr_day == i) {
