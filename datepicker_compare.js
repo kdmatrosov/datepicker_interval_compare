@@ -68,6 +68,10 @@ window.onload = function () {
                     d_input_start.currentElement.index = 1;
                     showMonth();
                 });
+            var d_input_start_hidden = initElem(new_datepicker, 'input').attr("id", Pickers[0].getAttribute("id")+'_start_hidden')
+                .attr('type', 'hidden');
+            var d_input_end_hidden = initElem(new_datepicker, 'input').attr("id", Pickers[0].getAttribute("id")+'_end_hidden')
+                .attr('type', 'hidden');
             var d_panel = initElem(new_datepicker, 'div').addClass('dic-panel').addClass('dspl-none').attr('panel', '').on('click', function()
             {
 
@@ -297,6 +301,62 @@ window.onload = function () {
             p_data.push(initElem(d_panel, 'div').addClass('dic-panel__data').attr('data', ''));
 
 
+            /*compare*/
+            var dic_compare = initElem(d_panel, 'div').addClass('dic-compare').attr('data', '');
+
+            var dic_compare__toggle = initElem(dic_compare, 'span', 'Сравнить').addClass('dic-compare__toggle').on('click', function()
+            {
+                d_panel.currentElement.classList.toggle('-maxheight');
+            });
+            var p_functions_hidden = initElem(d_panel, 'div').addClass('diP-functions');
+
+            function callSetDateForInputHidden(month__days)
+            {
+                setDateForInput(d_input_start_hidden, month__days.first);
+                setDateForInput(d_input_end_hidden, month__days.last);
+            }
+            var p_functions_hidden__previous_month = initElem(p_functions_hidden, 'div', 'Прошлый месяц').addClass('diP-functions__action').on('click', function()
+            {
+                callSetDateForInputHidden(dateAssitant.getPreviousMonthDays());
+            });
+            var p_functions_hidden__current_month = initElem(p_functions_hidden, 'div', 'Этот месяц').addClass('diP-functions__action').on('click', function()
+            {
+                callSetDateForInputHidden(dateAssitant.getCurrentMonthDays());
+            });
+            var p_functions_hidden__previous_week = initElem(p_functions_hidden, 'div', 'Прошлая неделя').addClass('diP-functions__action').on('click', function()
+            {
+                callSetDateForInputHidden(dateAssitant.getPreviousWeekDays());
+            });
+            var p_functions_hidden__current_week = initElem(p_functions_hidden, 'div', 'Эта неделя').addClass('diP-functions__action').on('click', function()
+            {
+                callSetDateForInputHidden(dateAssitant.getCurrentWeekDays());
+            });
+            var p_functions_hidden__yesterday = initElem(p_functions_hidden, 'div', 'Вчера').addClass('diP-functions__action').on('click', function()
+            {
+                callSetDateForInputHidden(dateAssitant.getYesterdayDays());
+            });
+
+            var p_header_hidden = initElem(d_panel, 'div').addClass('diP-header').attr('panel', '');
+            var p_header__prev_hidden = initElem(p_header_hidden, 'div', '&#8249;').addClass('diP-header__prev').on('click', function()
+            {
+                var self = d_input_end.getCE();
+                var temp_year = self.y, temp_month = self.m;
+                temp_year = (temp_month < 2) ? (--temp_year) : temp_year;
+                temp_month = (temp_month < 2) ? 11 : (temp_month - 2);
+                showMonth([temp_year, temp_month]);
+            });
+            var p_header__name_hidden = [
+                initElem(p_header_hidden, 'div').addClass('diP-header__name').addClass('-previousMonth'),
+                initElem(p_header_hidden, 'div').addClass('diP-header__name').addClass('-currentMonth')
+            ];
+            var p_header__next_hidden = initElem(p_header_hidden, 'div', '&#8250;').addClass('diP-header__next').on('click', function()
+            {
+                var self = d_input_end.getCE();
+                var temp_year = self.y, temp_month = self.m;
+                temp_year = (temp_month > 9) ? (++temp_year) : temp_year;
+                temp_month = (temp_month > 9) ? 0 : (temp_month + 2);
+                showMonth([temp_year, temp_month]);
+            });
             new_datepicker.replace(Pickers[0]);
             datePickers.push(new_datepicker.getCE());
         })();

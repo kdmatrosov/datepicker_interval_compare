@@ -17,15 +17,20 @@ body
     /*display: none;*/
     position: absolute;
     width: 546px;
-    height: 203px;
+    height: 415px;
     background-color: #ffffff;
     z-index: 50000;
     top: 32px;
     left: -1px;
     border: 1px solid #d1d1d1;
-    padding: 5px 0;
+    padding: 5px 0 0 0;
     border-radius: 5px;
     box-shadow: 0 5px 34px -12px #668aa9;
+    overflow: hidden;
+}
+.dic-panel.-maxheight
+{
+    max-height: 226px;
 }
 .dic-picker
 {
@@ -99,7 +104,7 @@ input.dic-picker__value
 }
 .diP-functions
 {
-    height: 100%;
+    height: 180px;
     width: 135px;
     float: left;
     padding: 40px 0 0 20px;
@@ -205,6 +210,26 @@ input.dic-picker__value
     float: left;
     margin-top: 6px;
 }
+.dic-compare
+{
+    height: 28px;
+    width: 100%;
+    background-color: #f5f5f5;
+    clear: both;
+    position: relative;
+}
+.dic-compare__toggle
+{
+    height: 28px;
+    line-height: 28px;
+    margin: 0 auto;
+    display: table;
+    font-size: 13px;
+}
+.dic-compare__toggle:hover
+{
+    cursor: pointer;
+}
 .dic-panel__data
 {
     width: 204px;
@@ -277,6 +302,7 @@ input.dic-picker__value
     bottom: 0;
     left: 3px;
 }
+
 /**/
 .dspl-none
 {
