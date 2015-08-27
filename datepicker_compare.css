@@ -17,7 +17,7 @@ body
     /*display: none;*/
     position: absolute;
     width: 546px;
-    height: 415px;
+    height: 420px;
     background-color: #ffffff;
     z-index: 50000;
     top: 32px;
@@ -83,6 +83,7 @@ body
     top: -8px;
     left: 106px;
 }
+
 input.dic-picker__value
 {
     width: 80px;
@@ -94,10 +95,11 @@ input.dic-picker__value
     border: 0;
     outline: 0;
     outline-offset:0;
+    float: left;
 }
 .dic-dash
 {
-    display: inline-block;
+    float: left;
     line-height: 29px;
     width: 10px;
     text-align: center;
@@ -210,30 +212,10 @@ input.dic-picker__value
     float: left;
     margin-top: 6px;
 }
-.dic-compare
-{
-    height: 28px;
-    width: 100%;
-    background-color: #f5f5f5;
-    clear: both;
-    position: relative;
-}
-.dic-compare__toggle
-{
-    height: 28px;
-    line-height: 28px;
-    margin: 0 auto;
-    display: table;
-    font-size: 13px;
-}
-.dic-compare__toggle:hover
-{
-    cursor: pointer;
-}
 .dic-panel__data
 {
     width: 204px;
-    height: auto;
+    height: 162px;
     font-size: 12px;
     float: left;
 }
@@ -301,6 +283,65 @@ input.dic-picker__value
 {
     bottom: 0;
     left: 3px;
+}
+/*compare*/
+
+.dic-compare
+{
+    height: 28px;
+    width: 100%;
+    background-color: #f5f5f5;
+    clear: both;
+    position: relative;
+}
+.dic-compare__toggle
+{
+    height: 28px;
+    line-height: 28px;
+    margin: 0 auto;
+    display: table;
+    font-size: 13px;
+}
+.dic-compare__toggle:hover
+{
+    cursor: pointer;
+}
+.dic-hidden
+{
+    padding: 2px;
+    border-radius: 4px;
+    background-color: #90d843;
+    height: 15px;
+    position: absolute;
+    top: -8px;
+    right: 8px;
+}
+.dic-hidden__dash
+{
+    background-color: transparent;
+    color: #ffffff;
+    width: 10px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 14px;
+    float: left;
+}
+
+input.dic-hidden__value
+{
+    width: 55px;
+    height: 100%;
+    padding: 0!important;
+    margin: 0;
+    text-align: center;
+    line-height: 14px;
+    border: 0;
+    outline: 0;
+    outline-offset:0;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 10px;
+    float: left;
 }
 
 /**/
