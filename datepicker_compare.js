@@ -327,6 +327,20 @@ window.onload = function () {
             });
             var dic_compare__change = initElem(dic_compare, 'span', '&#8593;&#8595;').addClass('dic-compare__change').addClass('dspl-none').on('click', function()
             {
+                var temp = d_input_start_hidden.currentElement.value;
+                d_input_start_hidden.currentElement.value = d_input_start.currentElement.value;
+                d_input_start.currentElement.value = temp;
+                temp = d_input_end_hidden.currentElement.value;
+                d_input_end_hidden.currentElement.value = d_input_end.currentElement.value;
+                d_input_end.currentElement.value = temp;
+                temp = d_input_start_hidden.currentElement.date;
+                d_input_start_hidden.currentElement.date = d_input_start.currentElement.date;
+                d_input_start.currentElement.date = temp;
+                temp = d_input_end_hidden.currentElement.date;
+                d_input_end_hidden.currentElement.date = d_input_end.currentElement.date;
+                d_input_end.currentElement.date = temp;
+                showMonth();
+                showMonth_hidden();
             });
             var p_functions_hidden = initElem(d_panel, 'div').addClass('diP-functions');
 
