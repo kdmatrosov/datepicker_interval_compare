@@ -51,7 +51,7 @@ window.onload = function () {
                 })
                 .on('click', function (e) {
                     d_panel.removeClass('dspl-none');
-                    di_icon.addClass('-active');
+                    di_icon__dp.addClass('-active');
                     d_input_start.currentElement.index = 0;
                     showMonth();
                     showMonth_hidden();
@@ -66,7 +66,7 @@ window.onload = function () {
                 })
                 .on('click', function (e) {
                     d_panel.removeClass('dspl-none');
-                    di_icon.addClass('-active');
+                    di_icon__dp.addClass('-active');
                     d_input_start.currentElement.index = 1;
                     showMonth();
                     showMonth_hidden();
